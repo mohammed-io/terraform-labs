@@ -1,0 +1,2 @@
+fundamentals/scenario-05-localstack-fullstack
+fundamentals/scenario-03-localstack-networking

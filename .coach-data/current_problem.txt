@@ -1,0 +1,1 @@
+fundamentals/scenario-05-localstack-fullstack
