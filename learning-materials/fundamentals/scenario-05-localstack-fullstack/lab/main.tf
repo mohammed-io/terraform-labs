@@ -84,6 +84,11 @@ variable "lambda_memory" {
 # HINT: resource "aws_apigatewayv2_route" "health" { route_key = "GET /health" }
 
 # Outputs
+output "api_id" {
+  description = "API Gateway ID"
+  value       = try(aws_apigatewayv2_api.main.id, "not created")
+}
+
 output "api_endpoint" {
   description = "API Gateway endpoint URL"
   value       = try("${aws_apigatewayv2_api.main.id}.execute-api.us-east-1.amazonaws.com:${aws_apigatewayv2_stage.main.name}", "not created")

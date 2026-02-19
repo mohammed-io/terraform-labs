@@ -60,6 +60,11 @@ variable "availability_zone" {
 # HINT: resource "aws_security_group" "app" { ingress uses security_groups = [aws_security_group.web.id] }
 
 # Outputs
+output "internet_gateway_id" {
+  description = "Internet Gateway ID"
+  value       = try(aws_internet_gateway.gw.id, "not created")
+}
+
 output "vpc_id" {
   description = "VPC ID"
   value       = try(aws_vpc.main.id, "not created")

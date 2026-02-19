@@ -85,14 +85,34 @@ variable "secret_value" {
 # HINT: resource "aws_secretsmanager_secret_version" "db_creds" { secret_string = var.secret_value }
 
 # Outputs
-output "kms_key_arn" {
-  description = "KMS Key ARN"
-  value       = try(aws_kms_key.main.arn, "not created")
+output "iam_user_name" {
+  description = "IAM User Name"
+  value       = try(aws_iam_user.app_user.name, "not created")
 }
 
 output "iam_user_arn" {
   description = "IAM User ARN"
   value       = try(aws_iam_user.app_user.arn, "not created")
+}
+
+output "group_name" {
+  description = "IAM Group Name"
+  value       = try(aws_iam_group.developers.name, "not created")
+}
+
+output "kms_key_id" {
+  description = "KMS Key ID"
+  value       = try(aws_kms_key.main.key_id, "not created")
+}
+
+output "kms_key_arn" {
+  description = "KMS Key ARN"
+  value       = try(aws_kms_key.main.arn, "not created")
+}
+
+output "iam_role_name" {
+  description = "IAM Role Name"
+  value       = try(aws_iam_role.lambda.name, "not created")
 }
 
 output "iam_role_arn" {
